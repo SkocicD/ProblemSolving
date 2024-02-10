@@ -29,9 +29,10 @@ def rect_int_area(rect):
     
     return (xmax-xmin+1)*(ymax-ymin+1)
     
-def triangle_int_area(p1,p2,slope):
+def tri_int_area(p1,p2,slope):
+    rect = get_min_max([p1,p2])
+    return (rect_int_area(rect) + math.floor((1/slope[1])*(rect[1]-rect[0]))+1)/2
     
     
-rect = get_min_max([(0.1,0.1),(3.1,5.1)])
-print(rect_int_area(rect))
-
+#rect = get_min_max([(0.1,0.1),(3.1,5.1)])
+print(tri_int_area((0,0),(5,3),(4,5)))
